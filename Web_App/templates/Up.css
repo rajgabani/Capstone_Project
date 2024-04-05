@@ -1,0 +1,18 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    
+    display: grid;
+    padding-top: 400;
+    background-image: url('hope.png'); /* Replace 'path_to_your_image.jpg' with the path to your background image */
+    background-size: cover;
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+#preview {
+    margin-top: 20px;
+}

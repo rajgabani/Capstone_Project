@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lung Cancer Detection</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            /* background-image: url('../static/hope.png');
+            /* background-size: cover; 
+            background-position: left; 
+            background-repeat: no-repeat; 
+            margin-top: 15%;
+            margin-right: 5%; */
+            font-family: 'Poppins', sans-serif;
+    
+
+    background-image: url('../static/hope.png'); /* Replace 'path_to_your_image.jpg' with the path to your background image */
+    background-position: auto;  
+    background-repeat: no-repeat; 
+    background-size: cover; 
+
+        }
+
+        h1 {
+            color: blue; /* Example: set text color to blue */
+        }
+
+        /* Add more CSS rules as needed */
+    </style>
+</head>
+<body>
+    <center><h1>Lung Cancer Detection</h1></center><br><br>
+    <form method="POST" action="/upload" id="imageForm" enctype="multipart/form-data">
+        <div class="input-group mb-3">
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputGroupFile01" name="image" onchange="updateFileName()">
+                <label class="custom-file-label" for="inputGroupFile01" id="fileNameLabel">Choose file</label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" id="uploadButton" disabled>Upload</button>
+        &nbsp;&nbsp;
+        <button type="button" class="btn btn-primary" id="uploadButton" onclick="clearForm()">Clear</button>
+    </form>
+
+    
+
+<script>
+    function clearForm() {
+        window.location.href = '/';
+    }
+</script>
+
+
+{%if show%}
+
+<center>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src= "{{d['file']}}" , alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text"><h1><center>{{ d.output }}</center></h1></p>
+        </div>
+      </div>
+</center>
+
+{% endif %}
+    <script>
+        function updateFileName() {
+            var fileName = document.getElementById("inputGroupFile01").files[0].name;
+            document.getElementById("fileNameLabel").innerText = fileName;
+
+            // Enable the upload button if a file is selected
+            var uploadButton = document.getElementById("uploadButton");
+            uploadButton.disabled = false;
+        }
+    </script>
+
+</body>
+</html>

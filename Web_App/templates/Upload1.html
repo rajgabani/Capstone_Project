@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Insertion Page</title>
+    <link rel="stylesheet" href="../static/Up.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <h1>Welcome to Lung Cancer Analysis</h1>
+    <form method="POST" action="/upload" id="imageForm" enctype="multipart/form-data">
+        <input type="file" id="imageInput"  accept="image/*" name="image">
+        <button  type="submit">Upload Image</button>
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+    <div id="preview"></div> <!-- Container to preview uploaded image -->
+    <h1><center>{{ result }}</center></h1>
+    <script src="../static/script.js"></script> <!-- Link to your JavaScript file -->
+    
+</body>
+</html>
